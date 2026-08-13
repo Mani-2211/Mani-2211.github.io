@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manikandan N — Biostatistician</title>
+<meta name="description" content="Manikandan N — Senior Technical Executive, Biostatistician. Clinical trial statistics, PK/BE analysis, CDISC SDTM/ADaM, SAS/R programming.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#152A3B;
+    --ink-soft:#3E5468;
+    --paper:#F1F4F2;
+    --paper-raised:#FFFFFF;
+    --line:#D7DEDA;
+    --teal:#2C7A6B;
+    --teal-deep:#1E5A4F;
+    --amber:#C17E2A;
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+    --sans:'IBM Plex Sans', -apple-system, sans-serif;
+    --serif:'Fraunces', Georgia, serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(241,244,242,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1080px;margin:0 auto;padding:16px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .nav-mark{
+    font-family:var(--mono);font-size:13px;letter-spacing:0.06em;
+    color:var(--teal-deep);text-decoration:none;font-weight:600;
+  }
+  .nav-links{display:flex;gap:28px;list-style:none;}
+  .nav-links a{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:0.04em;
+    text-decoration:none;color:var(--ink-soft);
+    text-transform:uppercase;
+    padding-bottom:2px;border-bottom:1px solid transparent;
+    transition:color .15s, border-color .15s;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{color:var(--teal-deep);border-color:var(--teal-deep);}
+  .nav-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:88px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr 0.85fr;gap:40px;align-items:center;
+  }
+  .eyebrow{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:0.12em;
+    color:var(--teal-deep);text-transform:uppercase;margin-bottom:18px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{
+    content:'';width:22px;height:1px;background:var(--teal-deep);display:inline-block;
+  }
+  h1.name{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(40px,5.4vw,64px);
+    line-height:1.02;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .role-line{
+    font-family:var(--sans);font-weight:500;font-size:19px;
+    color:var(--ink-soft);margin-bottom:22px;
+  }
+  .role-line strong{color:var(--teal-deep);font-weight:600;}
+  .hero-summary{
+    max-width:52ch;color:var(--ink-soft);font-size:15.5px;margin-bottom:30px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono);font-size:13px;letter-spacing:0.02em;
+    padding:11px 20px;border-radius:2px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .btn-primary{background:var(--teal-deep);color:#fff;}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(30,90,79,0.28);}
+  .btn-ghost{border:1px solid var(--ink);color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:#fff;}
+
+  /* KM curve signature */
+  .km-figure{position:relative;height:320px;}
+  .km-caption{
+    position:absolute;bottom:-2px;left:0;
+    font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);
+    letter-spacing:0.03em;
+  }
+  .km-figure svg{width:100%;height:100%;}
+  .km-line{
+    stroke:var(--teal);stroke-width:2.5;fill:none;
+    stroke-dasharray:1000;stroke-dashoffset:1000;
+    animation:draw 2.4s ease-out forwards .3s;
+  }
+  .km-ref{stroke:var(--line);stroke-width:1;fill:none;}
+  .km-tick text{font-family:var(--mono);font-size:9px;fill:var(--ink-soft);}
+  .km-censor{fill:var(--amber);}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+
+  .stat-strip{
+    border-top:1px solid var(--line);
+    margin-top:56px;
+    display:grid;grid-template-columns:repeat(4,1fr);
+  }
+  .stat-cell{
+    padding:22px 20px 0;border-left:1px solid var(--line);
+  }
+  .stat-cell:first-child{border-left:none;padding-left:0;}
+  .stat-num{
+    font-family:var(--serif);font-size:30px;font-weight:600;color:var(--teal-deep);
+    display:block;
+  }
+  .stat-label{
+    font-family:var(--mono);font-size:11px;color:var(--ink-soft);
+    text-transform:uppercase;letter-spacing:0.04em;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:64px 0;border-bottom:1px solid var(--line);}
+  .section-head{
+    display:flex;align-items:baseline;gap:16px;margin-bottom:34px;
+  }
+  .section-tag{
+    font-family:var(--mono);font-size:12px;color:var(--teal-deep);
+    letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;
+  }
+  .section-title{
+    font-family:var(--serif);font-size:28px;font-weight:600;color:var(--ink);
+  }
+  .section-rule{flex:1;height:1px;background:var(--line);}
+
+  /* ---------- SUMMARY ---------- */
+  .summary-text{
+    font-size:16px;color:var(--ink-soft);max-width:74ch;
+  }
+  .summary-text strong{color:var(--ink);font-weight:600;}
+
+  /* ---------- EXPERIENCE ---------- */
+  .role{
+    display:grid;grid-template-columns:220px 1fr;gap:28px;
+    padding:28px 0;border-top:1px solid var(--line);
+  }
+  .role:first-of-type{border-top:none;}
+  .role-meta{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);}
+  .role-meta .dates{color:var(--teal-deep);font-weight:600;display:block;margin-bottom:6px;}
+  .role-title{
+    font-family:var(--sans);font-weight:600;font-size:17px;color:var(--ink);margin-bottom:2px;
+  }
+  .role-org{font-size:14.5px;color:var(--ink-soft);margin-bottom:14px;}
+  .promo-note{
+    display:inline-block;background:rgba(193,126,42,0.12);color:var(--amber);
+    font-family:var(--mono);font-size:11px;padding:3px 8px;border-radius:2px;margin-bottom:14px;
+  }
+  .role ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .role li{
+    position:relative;padding-left:18px;font-size:14.5px;color:var(--ink-soft);
+  }
+  .role li::before{
+    content:'';position:absolute;left:0;top:8px;width:6px;height:1px;background:var(--teal);
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skill-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:32px 40px;}
+  .skill-group h3{
+    font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.05em;
+    color:var(--teal-deep);margin-bottom:12px;
+  }
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-family:var(--mono);font-size:12px;color:var(--ink);
+    background:var(--paper-raised);border:1px solid var(--line);
+    padding:5px 10px;border-radius:2px;
+  }
+
+  /* ---------- ACHIEVEMENTS ---------- */
+  .ach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .ach-card{background:var(--paper-raised);padding:26px 20px;}
+  .ach-num{font-family:var(--serif);font-size:34px;font-weight:600;color:var(--teal-deep);line-height:1;}
+  .ach-desc{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+
+  /* ---------- EDUCATION / CERTS ---------- */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .edu-item{margin-bottom:22px;}
+  .edu-degree{font-weight:600;font-size:15.5px;color:var(--ink);}
+  .edu-school{font-size:14px;color:var(--ink-soft);}
+  .edu-years{font-family:var(--mono);font-size:12px;color:var(--teal-deep);margin-top:2px;}
+
+  .cert-list{list-style:none;display:flex;flex-direction:column;}
+  .cert-list li{
+    font-size:14px;color:var(--ink-soft);padding:10px 0;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;gap:12px;
+  }
+  .cert-list li:first-child{border-top:none;}
+  .cert-list .src{font-family:var(--mono);font-size:11px;color:var(--ink-soft);white-space:nowrap;}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{padding:60px 0 40px;border-bottom:none;}
+  .contact-inner{
+    display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;
+  }
+  .contact-title{
+    font-family:var(--serif);font-size:32px;font-weight:600;max-width:14ch;
+  }
+  .contact-links{display:flex;flex-direction:column;gap:10px;}
+  .contact-links a{
+    font-family:var(--mono);font-size:14px;text-decoration:none;color:var(--ink-soft);
+    display:flex;align-items:center;gap:10px;transition:color .15s;
+  }
+  .contact-links a:hover{color:var(--teal-deep);}
+  .contact-links a::before{content:'→';color:var(--teal);}
+  .foot-note{
+    margin-top:48px;padding-top:20px;border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:11px;color:var(--ink-soft);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 860px){
+    .wrap{padding:0 20px;}
+    .nav-inner{padding:14px 20px;}
+    .nav-links{gap:16px;}
+    .hero{padding:56px 0 40px;}
+    .hero-grid{grid-template-columns:1fr;gap:36px;}
+    .km-figure{height:220px;order:-1;}
+    .stat-strip{grid-template-columns:repeat(2,1fr);row-gap:20px;}
+    .stat-cell:nth-child(3){border-left:none;padding-left:0;}
+    .role{grid-template-columns:1fr;gap:8px;}
+    .skill-groups{grid-template-columns:1fr;}
+    .ach-grid{grid-template-columns:repeat(2,1fr);}
+    .two-col{grid-template-columns:1fr;gap:8px;}
+    .contact-inner{flex-direction:column;align-items:flex-start;}
+    .section-title{font-size:23px;}
+  }
+  @media (max-width:520px){
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-mark" href="#top">MANIKANDAN&nbsp;N · BIOSTAT</a>
+    <ul class="nav-links">
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:1px solid var(--line);padding-bottom:0;">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Villupuram, Tamil Nadu · Available for opportunities</div>
+          <h1 class="name">Manikandan N</h1>
+          <p class="role-line">Senior Technical Executive — <strong>Biostatistician</strong>, Lambda Therapeutic Research</p>
+          <p class="hero-summary">
+            Three-plus years in CRO clinical research, working the full statistical lifecycle of a trial — SAP authoring,
+            SDTM/ADaM datasets, PK &amp; bioequivalence analysis, and TLF generation — for submissions reviewed by USFDA, ANVISA, NPRA and DCGI.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:maninaga6384@gmail.com">Email me</a>
+            <a class="btn btn-ghost" href="https://linkedin.com/in/mani2" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+        <div class="km-figure" aria-hidden="true">
+          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- axes -->
+            <line class="km-ref" x1="30" y1="20" x2="30" y2="220"/>
+            <line class="km-ref" x1="30" y1="220" x2="300" y2="220"/>
+            <!-- KM step curve -->
+            <path class="km-line" d="M30,40
+              L90,40 L90,70 L140,70 L140,95 L170,95 L170,120
+              L200,120 L200,150 L230,150 L230,175 L260,175 L260,195 L300,195"/>
+            <!-- censoring marks -->
+            <line class="km-censor" x1="115" y1="70" x2="115" y2="78" stroke="#C17E2A" stroke-width="2"/>
+            <line class="km-censor" x1="185" y1="120" x2="185" y2="128" stroke="#C17E2A" stroke-width="2"/>
+            <line class="km-censor" x1="245" y1="175" x2="245" y2="183" stroke="#C17E2A" stroke-width="2"/>
+            <line class="km-censor" x1="280" y1="195" x2="280" y2="203" stroke="#C17E2A" stroke-width="2"/>
+            <g class="km-tick">
+              <text x="24" y="18">1.0</text>
+              <text x="24" y="224">0.0</text>
+              <text x="26" y="234">0</text>
+              <text x="290" y="234">t</text>
+            </g>
+          </svg>
+          <div class="km-caption">FIG. 1 — SURVIVAL ESTIMATE, ILLUSTRATIVE · n = 190+ RANDOMISATION SCHEMES GENERATED</div>
+        </div>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat-cell"><span class="stat-num">35+</span><span class="stat-label">SAPs authored</span></div>
+        <div class="stat-cell"><span class="stat-num">130+</span><span class="stat-label">CSRs delivered</span></div>
+        <div class="stat-cell"><span class="stat-num">190+</span><span class="stat-label">Randomisation schemes</span></div>
+        <div class="stat-cell"><span class="stat-num">0</span><span class="stat-label">Critical audit findings</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section id="summary">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">01 · Profile</span>
+        <div class="section-rule"></div>
+      </div>
+      <p class="summary-text">
+        <strong>Biostatistician with over three years</strong> of experience in CRO-based clinical research and clinical
+        trial statistics, specialising in <strong>pharmacokinetic (PK) and bioequivalence (BE) studies</strong>, CDISC
+        SDTM/ADaM dataset development, SAP authoring, and TLF generation. Proficient in <strong>SAS 9.4, SAS Viya, R and
+        Phoenix WinNonlin</strong>, with a track record supporting global regulatory submissions and audits — USFDA,
+        ANVISA, NPRA, and DCGI — with zero critical findings. Comfortable across survival analysis, MMRM, missing-data
+        imputation, and randomisation design, working cross-functionally in Oncology, Dermatology and Ophthalmology.
+        Recently promoted to Senior Technical Executive in recognition of sustained performance.
+      </p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">02 · Experience</span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="role">
+        <div class="role-meta">
+          <span class="dates">Nov 2024 — Present</span>
+          Ahmedabad, Gujarat
+        </div>
+        <div>
+          <div class="role-title">Senior Technical Executive — Biostatistician</div>
+          <div class="role-org">Lambda Therapeutic Research</div>
+          <span class="promo-note">Promoted 1 April 2026</span>
+          <ul>
+            <li>Represent Biostatistics in project discussions and sponsor meetings, ensuring statistical compliance with protocol and regulatory requirements.</li>
+            <li>Own statistical deliverables across the project lifecycle — from study start-up through SAP authoring and mock-up shells for tables, listings and figures.</li>
+            <li>Run PK analyses across multiple study designs using Phoenix WinNonlin and SAS; apply methods spanning t-test, ANOVA, Wilcoxon, Kruskal–Wallis, Chi-square, Cochran–Mantel–Haenszel, Log-Rank and Cox PH.</li>
+            <li>Develop and validate SAS programs for efficacy, safety and PK analyses, including TLF generation and QC review for regulatory-compliant outputs.</li>
+            <li>Manage and coordinate biostatistics and programming teams to hit project milestones, and independently review team deliverables for quality.</li>
+            <li>Work across Oncology, Dermatology, Ophthalmology and Diabetes therapeutic areas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="role-meta">
+          <span class="dates">Aug 2023 — Oct 2024</span>
+          Chennai, Tamil Nadu
+        </div>
+        <div>
+          <div class="role-title">Biostatistician</div>
+          <div class="role-org">Azidus Laboratories Ltd.</div>
+          <ul>
+            <li>Generated randomisation schemes and sample size calculations for clinical studies using SAS.</li>
+            <li>Analysed pharmacokinetic parameters using Phoenix WinNonlin and SAS; prepared and reviewed PK and statistical reports and SOPs.</li>
+            <li>Created and validated CDISC SDTM and ADaM datasets, mapping domains with Phoenix WinNonlin against the Annotated CRF.</li>
+            <li>Generated TLFs from SDTM/ADaM datasets using SAS and prepared SDTM/ADaM terminology.</li>
+            <li>Coordinated with protocol teams on protocol design and SAP development, and verified protocol deviations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">03 · Skills</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3>Programming &amp; Software</h3>
+          <div class="chip-row">
+            <span class="chip">SAS 9.4</span><span class="chip">SAS Viya</span><span class="chip">R</span>
+            <span class="chip">Python</span><span class="chip">Phoenix WinNonlin 8.7</span>
+            <span class="chip">Pinnacle 21</span><span class="chip">SAS Studio Analyst</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Statistical Methods</h3>
+          <div class="chip-row">
+            <span class="chip">PK/PD Analysis</span><span class="chip">NCA</span><span class="chip">Bioequivalence</span>
+            <span class="chip">MMRM</span><span class="chip">Survival Analysis</span><span class="chip">Kaplan–Meier</span>
+            <span class="chip">Cox PH</span><span class="chip">Logistic Regression</span><span class="chip">Multiple Imputation</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>CDISC Standards</h3>
+          <div class="chip-row">
+            <span class="chip">SDTM (DM, AE, LB, EX, VS, DS, MH, CM, TU)</span>
+            <span class="chip">ADaM (ADSL, ADAE, ADLB, ADTTE, ADEX)</span>
+            <span class="chip">define.xml</span><span class="chip">Reviewer's Guide</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Regulatory &amp; Documents</h3>
+          <div class="chip-row">
+            <span class="chip">ICH GCP E6(R3)</span><span class="chip">ICH E9(R1) Estimands</span>
+            <span class="chip">USFDA eCTD</span><span class="chip">EMA Submission</span>
+            <span class="chip">SAP</span><span class="chip">CSR</span><span class="chip">TLF Shells</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">04 · Key Achievements</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="ach-grid">
+        <div class="ach-card">
+          <span class="ach-num">35+</span>
+          <p class="ach-desc">Statistical Analysis Plans authored across therapeutic areas</p>
+        </div>
+        <div class="ach-card">
+          <span class="ach-num">160+</span>
+          <p class="ach-desc">Clinical research statistical analyses contributed to</p>
+        </div>
+        <div class="ach-card">
+          <span class="ach-num">130+</span>
+          <p class="ach-desc">CSRs and regulatory deliverables across USFDA &amp; EMA submissions</p>
+        </div>
+        <div class="ach-card">
+          <span class="ach-num">25+</span>
+          <p class="ach-desc">CDISC datasets validated with Pinnacle 21 and SAS QC</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION + CERTS -->
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">05 · Education &amp; Certifications</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="edu-item">
+            <div class="edu-degree">M.Sc. in Statistics</div>
+            <div class="edu-school">Bharathiar University, Coimbatore, Tamil Nadu</div>
+            <div class="edu-years">2021 — 2023</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">B.Sc. in Statistics</div>
+            <div class="edu-school">Arignar Anna Government Arts College, Villupuram, Tamil Nadu</div>
+            <div class="edu-years">2018 — 2021</div>
+          </div>
+        </div>
+        <ul class="cert-list">
+          <li><span>SAS Viya Administration</span><span class="src">SAS Institute</span></li>
+          <li><span>SAS Visual Statistics in SAS Viya</span><span class="src">SAS Institute</span></li>
+          <li><span>Developing Custom Steps with SAS Studio</span><span class="src">SAS Institute</span></li>
+          <li><span>Managing Data Using Flows in SAS Studio</span><span class="src">SAS Institute</span></li>
+          <li><span>SAS Programming 1: Essentials</span><span class="src">SAS Institute</span></li>
+          <li><span>Statistics 1: ANOVA, Regression, Logistic Regression</span><span class="src">SAS Institute</span></li>
+          <li><span>ICH GCP R3 Expectations</span><span class="src">EMA/WHO Inspector</span></li>
+          <li><span>Clinical Trials Data Management</span><span class="src">Johns Hopkins Univ.</span></li>
+          <li><span>Clinical Trial Randomisation &amp; Sample Size Calc.</span><span class="src">ISCR</span></li>
+          <li><span>R Programming: Beginners to Pro</span><span class="src">Udemy</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <footer id="contact">
+    <div class="wrap">
+      <div class="contact-inner">
+        <div class="contact-title">Let's talk statistics.</div>
+        <div class="contact-links">
+          <a href="mailto:maninaga6384@gmail.com">maninaga6384@gmail.com</a>
+          <a href="tel:+917708816384">+91 77088 16384</a>
+          <a href="https://linkedin.com/in/mani2" target="_blank" rel="noopener">linkedin.com/in/mani2</a>
+        </div>
+      </div>
+      <div class="foot-note">
+        <span>MANIKANDAN N · SENIOR TECHNICAL EXECUTIVE, BIOSTATISTICIAN</span>
+        <span>VILLUPURAM, TAMIL NADU, INDIA</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>
