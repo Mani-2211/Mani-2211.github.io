@@ -230,6 +230,32 @@
   .ach-num{font-family:var(--serif);font-size:34px;font-weight:600;color:var(--teal-deep);line-height:1;}
   .ach-desc{font-size:13px;color:var(--ink-soft);margin-top:10px;}
 
+  /* ---------- PROJECTS ---------- */
+  .project-grid{display:flex;flex-direction:column;}
+  .project{
+    display:grid;grid-template-columns:64px 1fr;gap:24px;
+    padding:26px 0;border-top:1px solid var(--line);
+  }
+  .project:first-child{border-top:none;}
+  .project-index{
+    font-family:var(--serif);font-size:28px;font-weight:600;color:var(--line);
+    line-height:1;
+  }
+  .project-body h3{
+    font-family:var(--sans);font-weight:600;font-size:16.5px;color:var(--ink);margin-bottom:6px;
+  }
+  .project-tag{
+    display:inline-block;font-family:var(--mono);font-size:10.5px;
+    color:var(--teal-deep);background:rgba(44,122,107,0.09);
+    padding:2px 8px;border-radius:2px;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.03em;
+  }
+  .project-desc{font-size:14.5px;color:var(--ink-soft);margin-bottom:12px;max-width:70ch;}
+  .project-stack{display:flex;flex-wrap:wrap;gap:6px;}
+  .project-stack span{
+    font-family:var(--mono);font-size:11px;color:var(--ink-soft);
+    border:1px solid var(--line);padding:3px 8px;border-radius:2px;
+  }
+
   /* ---------- EDUCATION / CERTS ---------- */
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
   .edu-item{margin-bottom:22px;}
@@ -298,6 +324,7 @@
       <li><a href="#summary">Summary</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#achievements">Achievements</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -472,11 +499,104 @@
     </div>
   </section>
 
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">05 · Selected Projects — Oncology</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="project-grid">
+
+        <div class="project">
+          <div class="project-index">01</div>
+          <div class="project-body">
+            <span class="project-tag">Phase II · Solid Tumor</span>
+            <h3>SAP Development &amp; TLF Shells for a Solid-Tumor Oncology Trial</h3>
+            <p class="project-desc">
+              Authored the Statistical Analysis Plan and built mock-up shells for tables, listings, and figures for a
+              Phase II solid-tumor study, defining efficacy endpoints (ORR, PFS, OS) and the survival-analysis approach
+              ahead of database lock.
+            </p>
+            <div class="project-stack">
+              <span>SAP Authoring</span><span>Kaplan–Meier</span><span>Cox PH</span><span>SAS 9.4</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-index">02</div>
+          <div class="project-body">
+            <span class="project-tag">SDTM/ADaM · Oncology</span>
+            <h3>ADaM Time-to-Event Dataset Build for Progression-Free Survival Analysis</h3>
+            <p class="project-desc">
+              Built and validated ADTTE and supporting ADaM datasets for a PFS/OS endpoint in an oncology trial,
+              mapping SDTM domains against the annotated CRF and clearing Pinnacle 21 validation ahead of submission.
+            </p>
+            <div class="project-stack">
+              <span>ADTTE</span><span>SDTM Mapping</span><span>Pinnacle 21</span><span>define.xml</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-index">03</div>
+          <div class="project-body">
+            <span class="project-tag">Randomisation · Multi-arm</span>
+            <h3>Stratified Randomisation Scheme for a Multi-Arm Oncology Study</h3>
+            <p class="project-desc">
+              Generated a stratified randomisation scheme across multiple treatment arms, balancing key prognostic
+              factors, and coordinated with the protocol team on the design during SAP development.
+            </p>
+            <div class="project-stack">
+              <span>Stratified Randomisation</span><span>SAS</span><span>Protocol Design</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-index">04</div>
+          <div class="project-body">
+            <span class="project-tag">CSR · Regulatory Submission</span>
+            <h3>Clinical Study Report &amp; Regulatory Query Response for an Oncology Submission</h3>
+            <p class="project-desc">
+              Delivered the statistical sections of a Clinical Study Report and supported regulatory query responses
+              for an oncology submission, with QC-reviewed outputs contributing to zero critical audit findings.
+            </p>
+            <div class="project-stack">
+              <span>CSR</span><span>USFDA eCTD</span><span>QC Review</span><span>ICH E9(R1)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-index">05</div>
+          <div class="project-body">
+            <span class="project-tag">Missing Data · Longitudinal</span>
+            <h3>Missing-Data Sensitivity Analysis Using MMRM &amp; Multiple Imputation</h3>
+            <p class="project-desc">
+              Implemented MMRM alongside multiple-imputation sensitivity analyses (PROC MI / PROC MIANALYZE) for a
+              longitudinal oncology efficacy endpoint, comparing estimator robustness under different missingness
+              assumptions per the estimand framework.
+            </p>
+            <div class="project-stack">
+              <span>MMRM</span><span>PROC MI</span><span>PROC MIANALYZE</span><span>ICH E9(R1) Estimands</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p style="font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin-top:20px;">
+        Note: project details are illustrative of methodology and scope — sponsor and protocol-identifying information is withheld per confidentiality obligations.
+      </p>
+    </div>
+  </section>
+
   <!-- ACHIEVEMENTS -->
   <section id="achievements">
     <div class="wrap">
       <div class="section-head">
-        <span class="section-tag">04 · Key Achievements</span>
+        <span class="section-tag">06 · Key Achievements</span>
         <div class="section-rule"></div>
       </div>
       <div class="ach-grid">
@@ -504,7 +624,7 @@
   <section id="education">
     <div class="wrap">
       <div class="section-head">
-        <span class="section-tag">05 · Education &amp; Certifications</span>
+        <span class="section-tag">07 · Education &amp; Certifications</span>
         <div class="section-rule"></div>
       </div>
       <div class="two-col">
@@ -520,18 +640,31 @@
             <div class="edu-years">2018 — 2021</div>
           </div>
         </div>
-        <ul class="cert-list">
-          <li><span>SAS Viya Administration</span><span class="src">SAS Institute</span></li>
-          <li><span>SAS Visual Statistics in SAS Viya</span><span class="src">SAS Institute</span></li>
-          <li><span>Developing Custom Steps with SAS Studio</span><span class="src">SAS Institute</span></li>
-          <li><span>Managing Data Using Flows in SAS Studio</span><span class="src">SAS Institute</span></li>
-          <li><span>SAS Programming 1: Essentials</span><span class="src">SAS Institute</span></li>
-          <li><span>Statistics 1: ANOVA, Regression, Logistic Regression</span><span class="src">SAS Institute</span></li>
-          <li><span>ICH GCP R3 Expectations</span><span class="src">EMA/WHO Inspector</span></li>
-          <li><span>Clinical Trials Data Management</span><span class="src">Johns Hopkins Univ.</span></li>
-          <li><span>Clinical Trial Randomisation &amp; Sample Size Calc.</span><span class="src">ISCR</span></li>
-          <li><span>R Programming: Beginners to Pro</span><span class="src">Udemy</span></li>
-        </ul>
+        <div>
+          <a href="https://www.credly.com/users/manikandan_n" target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;
+             color:var(--teal-deep);text-decoration:none;border:1px solid var(--line);padding:8px 14px;
+             border-radius:2px;margin-bottom:16px;background:var(--paper-raised);">
+            ◎ View verified badges on Credly ↗
+          </a>
+          <ul class="cert-list">
+            <li><span>SAS Viya 4.0 Overview</span><span class="src">SAS Institute · Oct 2025</span></li>
+            <li><span>Managing &amp; Querying Data Using Flows in SAS Studio</span><span class="src">SAS Institute · Oct 2025</span></li>
+            <li><span>Developing Custom Steps with SAS Studio Analyst</span><span class="src">SAS Institute · Oct 2025</span></li>
+            <li><span>SAS Visual Statistics in SAS Viya: Interactive Model Building</span><span class="src">SAS Institute · Oct 2025</span></li>
+            <li><span>SAS Viya Platform Administration</span><span class="src">SAS Institute · Nov 2025</span></li>
+            <li><span>SAS Visual Analytics 1 for SAS Viya: Basics</span><span class="src">SAS Institute · Nov 2025</span></li>
+            <li><span>SAS Visual Analytics 2 for SAS Viya: Advanced</span><span class="src">SAS Institute · Nov 2025</span></li>
+            <li><span>Analytics on SAS</span><span class="src">Great Learning Academy · May 2024</span></li>
+            <li><span>Clinical Trials Data Management &amp; Quality Assurance</span>
+              <span class="src"><a href="https://coursera.org/verify/JSS2YRS3K1GJ" target="_blank" rel="noopener" style="color:var(--teal-deep);text-decoration:underline;">Johns Hopkins Univ. · Aug 2024 ↗</a></span></li>
+            <li><span>ICH GCP R3 Expectations</span><span class="src">EMA/WHO Inspector</span></li>
+            <li><span>Clinical Trial Randomisation &amp; Sample Size Calculation</span><span class="src">ISCR</span></li>
+            <li><span>Data Science: R Programming Complete Diploma 2023</span><span class="src">Udemy · Dec 2023</span></li>
+            <li><span>R Programming: Beginners to Pro</span><span class="src">Udemy · Jan 2025</span></li>
+            <li><span>Master MS Excel Macros &amp; Excel VBA Basics</span><span class="src">Udemy · Jul 2023</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -545,6 +678,7 @@
           <a href="mailto:maninaga6384@gmail.com">maninaga6384@gmail.com</a>
           <a href="tel:+917708816384">+91 77088 16384</a>
           <a href="https://linkedin.com/in/mani2" target="_blank" rel="noopener">linkedin.com/in/mani2</a>
+          <a href="https://www.credly.com/users/manikandan_n" target="_blank" rel="noopener">credly.com/users/manikandan_n</a>
         </div>
       </div>
       <div class="foot-note">
