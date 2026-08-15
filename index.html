@@ -175,6 +175,22 @@
   .cert-list .src{font-family:var(--mono);font-size:11px;color:var(--ink-soft);white-space:nowrap;}
   .cert-list a{color:var(--teal-deep);text-decoration:underline;}
 
+  .cert-gallery{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:36px;
+  }
+  .cert-card{
+    background:var(--paper-raised);border:1px solid var(--line);overflow:hidden;
+    display:flex;flex-direction:column;transition:box-shadow .15s, transform .15s;
+  }
+  .cert-card:hover{box-shadow:0 14px 30px -18px rgba(21,32,48,0.3);transform:translateY(-2px);}
+  .cert-thumb{
+    aspect-ratio:4/3;background:#fff;overflow:hidden;border-bottom:1px solid var(--line);
+  }
+  .cert-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+  .cert-card-body{padding:12px 14px 14px;}
+  .cert-card-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.35;}
+  .cert-card-meta{font-family:var(--mono);font-size:10.5px;color:var(--teal-deep);}
+
   /* ---------- CONTACT / FOOTER ---------- */
   footer{padding:56px 0 40px;border-bottom:none;}
   .contact-inner{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;}
@@ -203,6 +219,7 @@
     .role{grid-template-columns:1fr;gap:8px;}
     .edu-grid{grid-template-columns:1fr;}
     .skill-groups{grid-template-columns:1fr;}
+    .cert-gallery{grid-template-columns:repeat(2,1fr);gap:14px;}
     .section-title{font-size:22px;}
   }
 </style>
@@ -443,21 +460,61 @@
         <div class="section-rule"></div>
       </div>
       <a class="cert-badge-link" href="https://www.credly.com/users/manikandan_n" target="_blank" rel="noopener">◎ View verified badges on Credly ↗</a>
+
+      <div class="cert-gallery">
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="certs/cert-sas-viya-overview.png" alt="SAS Viya 4.0 Overview certificate"></div>
+          <div class="cert-card-body"><div class="cert-card-title">SAS Viya 4.0 Overview</div><div class="cert-card-meta">SAS Institute · Oct 2025</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="certs/cert-sas-flows.png" alt="Managing and Querying Data Using Flows in SAS Studio certificate"></div>
+          <div class="cert-card-body"><div class="cert-card-title">Managing &amp; Querying Data Using Flows in SAS Studio</div><div class="cert-card-meta">SAS Institute · Oct 2025</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="certs/cert-sas-custom-steps.png" alt="Developing Custom Steps with SAS Studio Analyst certificate"></div>
+          <div class="cert-card-body"><div class="cert-card-title">Developing Custom Steps with SAS Studio Analyst</div><div class="cert-card-meta">SAS Institute · Oct 2025</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="certs/cert-sas-visual-stats.png" alt="SAS Visual Statistics in SAS Viya certificate"></div>
+          <div class="cert-card-body"><div class="cert-card-title">SAS Visual Statistics in SAS Viya: Interactive Model Building</div><div class="cert-card-meta">SAS Institute · Oct 2025</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="certs/cert-sas-viya-admin.png" alt="SAS Viya Platform Administration certificate"></div>
+          <div class="cert-card-body"><div class="cert-card-title">SAS Viya Platform Administration</div><div class="cert-card-meta">SAS Institute · Nov 2025</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="certs/cert-sas-va1-basics.png" alt="SAS Visual Analytics 1 for SAS Viya Basics certificate"></div>
+          <div class="cert-card-body"><div class="cert-card-title">SAS Visual Analytics 1 for SAS Viya: Basics</div><div class="cert-card-meta">SAS Institute · Nov 2025</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="certs/cert-sas-va2-advanced.png" alt="SAS Visual Analytics 2 for SAS Viya Advanced certificate"></div>
+          <div class="cert-card-body"><div class="cert-card-title">SAS Visual Analytics 2 for SAS Viya: Advanced</div><div class="cert-card-meta">SAS Institute · Nov 2025</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="certs/cert-analytics-sas.jpeg" alt="Analytics on SAS certificate"></div>
+          <div class="cert-card-body"><div class="cert-card-title">Analytics on SAS</div><div class="cert-card-meta">Great Learning Academy · May 2024</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="certs/cert-jhu-clinical-trials.jpeg" alt="Clinical Trials Data Management and Quality Assurance certificate"></div>
+          <div class="cert-card-body"><div class="cert-card-title">Clinical Trials Data Management &amp; Quality Assurance</div><div class="cert-card-meta">Johns Hopkins Univ. · Aug 2024</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="certs/cert-udemy-r-diploma.jpeg" alt="Data Science R Programming Complete Diploma certificate"></div>
+          <div class="cert-card-body"><div class="cert-card-title">Data Science: R Programming Complete Diploma 2023</div><div class="cert-card-meta">Udemy · Dec 2023</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="certs/cert-udemy-r-beginners.jpeg" alt="R Programming Beginners to Pro certificate"></div>
+          <div class="cert-card-body"><div class="cert-card-title">R Programming: Beginners to Pro</div><div class="cert-card-meta">Udemy · Jan 2025</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="certs/cert-udemy-excel-vba.jpeg" alt="Master MS Excel Macros and Excel VBA certificate"></div>
+          <div class="cert-card-body"><div class="cert-card-title">Master MS Excel Macros &amp; Excel VBA Basics</div><div class="cert-card-meta">Udemy · Jul 2023</div></div>
+        </div>
+      </div>
+
       <ul class="cert-list">
-        <li><span>SAS Viya 4.0 Overview</span><span class="src">SAS Institute · Oct 2025</span></li>
-        <li><span>Managing &amp; Querying Data Using Flows in SAS Studio</span><span class="src">SAS Institute · Oct 2025</span></li>
-        <li><span>Developing Custom Steps with SAS Studio Analyst</span><span class="src">SAS Institute · Oct 2025</span></li>
-        <li><span>SAS Visual Statistics in SAS Viya: Interactive Model Building</span><span class="src">SAS Institute · Oct 2025</span></li>
-        <li><span>SAS Viya Platform Administration</span><span class="src">SAS Institute · Nov 2025</span></li>
-        <li><span>SAS Visual Analytics 1 for SAS Viya: Basics</span><span class="src">SAS Institute · Nov 2025</span></li>
-        <li><span>SAS Visual Analytics 2 for SAS Viya: Advanced</span><span class="src">SAS Institute · Nov 2025</span></li>
-        <li><span>Analytics on SAS</span><span class="src">Great Learning Academy · May 2024</span></li>
-        <li><span>Clinical Trials Data Management &amp; Quality Assurance</span><span class="src"><a href="https://coursera.org/verify/JSS2YRS3K1GJ" target="_blank" rel="noopener">Johns Hopkins Univ. · Aug 2024 ↗</a></span></li>
         <li><span>ICH GCP R3 Expectations</span><span class="src">EMA/WHO Inspector</span></li>
         <li><span>Clinical Trial Randomisation &amp; Sample Size Calculation</span><span class="src">ISCR</span></li>
-        <li><span>Data Science: R Programming Complete Diploma 2023</span><span class="src">Udemy · Dec 2023</span></li>
-        <li><span>R Programming: Beginners to Pro</span><span class="src">Udemy · Jan 2025</span></li>
-        <li><span>Master MS Excel Macros &amp; Excel VBA Basics</span><span class="src">Udemy · Jul 2023</span></li>
       </ul>
     </div>
   </section>
