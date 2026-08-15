@@ -68,7 +68,8 @@
   /* ---------- HERO / ABOUT ---------- */
   .hero{padding:72px 0 56px;border-bottom:1px solid var(--line);}
   .hero-grid{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start;}
-  .photo-frame img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:50%;}
+  .photo-frame{width:220px;height:220px;border-radius:50%;overflow:hidden;margin:0 auto;}
+  .photo-frame img{width:100%;height:100%;object-fit:cover;display:block;}
   .resume-btn{
     margin-top:14px;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
     font-family:var(--mono);font-size:12px;letter-spacing:0.02em;
@@ -211,7 +212,7 @@
     .nav-inner{padding:14px 20px;}
     .hero{padding:48px 0 36px;}
     .hero-grid{grid-template-columns:1fr;justify-items:center;text-align:center;gap:22px;}
-    .photo-frame{width:200px;}
+    .photo-frame{width:180px;height:180px;}
     .location-line, .social-row{justify-content:center;}
     .hero-summary{margin-left:auto;margin-right:auto;}
     .stat-strip{grid-template-columns:repeat(2,1fr);row-gap:18px;}
