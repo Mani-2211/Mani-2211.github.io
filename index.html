@@ -10,14 +10,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#152A3B;
-    --ink-soft:#3E5468;
-    --paper:#F1F4F2;
+    --ink:#152030;
+    --ink-soft:#455060;
+    --paper:#F2F4F3;
     --paper-raised:#FFFFFF;
-    --line:#D7DEDA;
+    --line:#DADFDC;
     --teal:#2C7A6B;
-    --teal-deep:#1E5A4F;
-    --amber:#C17E2A;
+    --teal-deep:#1B4E6B;
+    --amber:#8B3A45;
     --mono:'IBM Plex Mono', ui-monospace, monospace;
     --sans:'IBM Plex Sans', -apple-system, sans-serif;
     --serif:'Fraunces', Georgia, serif;
@@ -75,25 +75,20 @@
     border-bottom:1px solid var(--line);
   }
   .hero-grid{
-    display:grid;grid-template-columns:150px 1fr 300px;gap:36px;align-items:center;
+    display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:center;
   }
 
   /* photo, styled like a specimen/ID card to match the documentation aesthetic */
   .photo-frame{
     background:var(--paper-raised);
     border:1px solid var(--line);
-    padding:8px 8px 10px;
+    padding:10px;
+    box-shadow:0 18px 40px -20px rgba(21,32,48,0.25);
   }
   .photo-frame img{
     width:100%;aspect-ratio:3/4;object-fit:cover;
-    display:block;filter:grayscale(12%);
+    display:block;
   }
-  .photo-caption{
-    font-family:var(--mono);font-size:9.5px;color:var(--ink-soft);
-    letter-spacing:0.03em;margin-top:8px;text-transform:uppercase;
-    display:flex;justify-content:space-between;
-  }
-  .photo-caption .tag{color:var(--teal-deep);}
   .eyebrow{
     font-family:var(--mono);font-size:12.5px;letter-spacing:0.12em;
     color:var(--teal-deep);text-transform:uppercase;margin-bottom:18px;
@@ -130,24 +125,6 @@
   .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(30,90,79,0.28);}
   .btn-ghost{border:1px solid var(--ink);color:var(--ink);}
   .btn-ghost:hover{background:var(--ink);color:#fff;}
-
-  /* KM curve signature */
-  .km-figure{position:relative;height:320px;}
-  .km-caption{
-    position:absolute;bottom:-2px;left:0;
-    font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);
-    letter-spacing:0.03em;
-  }
-  .km-figure svg{width:100%;height:100%;}
-  .km-line{
-    stroke:var(--teal);stroke-width:2.5;fill:none;
-    stroke-dasharray:1000;stroke-dashoffset:1000;
-    animation:draw 2.4s ease-out forwards .3s;
-  }
-  .km-ref{stroke:var(--line);stroke-width:1;fill:none;}
-  .km-tick text{font-family:var(--mono);font-size:9px;fill:var(--ink-soft);}
-  .km-censor{fill:var(--amber);}
-  @keyframes draw{to{stroke-dashoffset:0;}}
 
   .stat-strip{
     border-top:1px solid var(--line);
@@ -298,9 +275,11 @@
     .nav-inner{padding:14px 20px;}
     .nav-links{gap:16px;}
     .hero{padding:56px 0 40px;}
-    .hero-grid{grid-template-columns:1fr;gap:28px;}
-    .photo-frame{width:140px;order:-1;}
-    .km-figure{height:220px;order:1;}
+    .hero-grid{grid-template-columns:1fr;gap:24px;justify-items:center;text-align:center;}
+    .photo-frame{width:180px;}
+    .hero-actions{justify-content:center;}
+    .hero-summary{margin-left:auto;margin-right:auto;}
+    .eyebrow{justify-content:center;}
     .stat-strip{grid-template-columns:repeat(2,1fr);row-gap:20px;}
     .stat-cell:nth-child(3){border-left:none;padding-left:0;}
     .role{grid-template-columns:1fr;gap:8px;}
@@ -339,7 +318,6 @@
       <div class="hero-grid">
         <div class="photo-frame">
           <img src="profile.jpg" alt="Portrait of Manikandan N">
-          <div class="photo-caption"><span class="tag">FIG. 0</span><span>SUBJECT</span></div>
         </div>
         <div>
           <div class="eyebrow">Villupuram, Tamil Nadu · Available for opportunities</div>
@@ -353,29 +331,6 @@
             <a class="btn btn-primary" href="mailto:maninaga6384@gmail.com">Email me</a>
             <a class="btn btn-ghost" href="https://linkedin.com/in/mani2" target="_blank" rel="noopener">LinkedIn ↗</a>
           </div>
-        </div>
-        <div class="km-figure" aria-hidden="true">
-          <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
-            <!-- axes -->
-            <line class="km-ref" x1="30" y1="20" x2="30" y2="220"/>
-            <line class="km-ref" x1="30" y1="220" x2="300" y2="220"/>
-            <!-- KM step curve -->
-            <path class="km-line" d="M30,40
-              L90,40 L90,70 L140,70 L140,95 L170,95 L170,120
-              L200,120 L200,150 L230,150 L230,175 L260,175 L260,195 L300,195"/>
-            <!-- censoring marks -->
-            <line class="km-censor" x1="115" y1="70" x2="115" y2="78" stroke="#C17E2A" stroke-width="2"/>
-            <line class="km-censor" x1="185" y1="120" x2="185" y2="128" stroke="#C17E2A" stroke-width="2"/>
-            <line class="km-censor" x1="245" y1="175" x2="245" y2="183" stroke="#C17E2A" stroke-width="2"/>
-            <line class="km-censor" x1="280" y1="195" x2="280" y2="203" stroke="#C17E2A" stroke-width="2"/>
-            <g class="km-tick">
-              <text x="24" y="18">1.0</text>
-              <text x="24" y="224">0.0</text>
-              <text x="26" y="234">0</text>
-              <text x="290" y="234">t</text>
-            </g>
-          </svg>
-          <div class="km-caption">FIG. 1 — SURVIVAL ESTIMATE, ILLUSTRATIVE · n = 190+ RANDOMISATION SCHEMES GENERATED</div>
         </div>
       </div>
 
