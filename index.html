@@ -37,37 +37,48 @@
     html{scroll-behavior:auto;}
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
   }
-  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  .wrap{max-width:820px;margin:0 auto;padding:0 32px;}
 
-  /* ---------- NAV ---------- */
+  /* ---------- LEFT SIDEBAR NAV ---------- */
+  body{padding-left:200px;}
   header.site-nav{
-    position:sticky;top:0;z-index:50;
-    background:rgba(242,244,243,0.9);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav-inner{
-    max-width:1080px;margin:0 auto;padding:16px 32px;
-    display:flex;align-items:center;justify-content:space-between;
+    position:fixed;top:0;left:0;bottom:0;width:200px;z-index:50;
+    background:var(--paper);border-right:1px solid var(--line);
+    display:flex;flex-direction:column;justify-content:space-between;
+    padding:36px 28px;
   }
   .nav-mark{
     font-family:var(--mono);font-size:13px;letter-spacing:0.06em;
     color:var(--teal-deep);text-decoration:none;font-weight:600;
+    display:block;margin-bottom:44px;line-height:1.4;
   }
-  .nav-links{display:flex;gap:24px;list-style:none;}
+  .nav-links{display:flex;flex-direction:column;gap:18px;list-style:none;}
   .nav-links a{
-    font-family:var(--mono);font-size:12px;letter-spacing:0.03em;
+    font-family:var(--mono);font-size:12.5px;letter-spacing:0.03em;
     text-decoration:none;color:var(--ink-soft);
-    padding-bottom:2px;border-bottom:1px solid transparent;
-    transition:color .15s, border-color .15s;
+    display:flex;align-items:center;gap:8px;
+    transition:color .15s;
   }
-  .nav-links a .num{color:var(--teal-deep);margin-right:2px;}
-  .nav-links a:hover, .nav-links a:focus-visible{color:var(--teal-deep);border-color:var(--teal-deep);}
-  @media (max-width:640px){.nav-links{display:none;}}
+  .nav-links a .num{color:var(--teal-deep);}
+  .nav-links a:hover, .nav-links a:focus-visible{color:var(--teal-deep);}
+  .nav-foot{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);}
+  @media (max-width:900px){
+    body{padding-left:0;}
+    header.site-nav{
+      position:sticky;top:0;left:auto;bottom:auto;width:auto;height:auto;
+      flex-direction:row;align-items:center;justify-content:space-between;
+      padding:14px 20px;border-right:none;border-bottom:1px solid var(--line);
+      backdrop-filter:blur(8px);background:rgba(242,244,243,0.9);
+    }
+    .nav-mark{margin-bottom:0;}
+    .nav-links{display:none;}
+    .nav-foot{display:none;}
+  }
 
   /* ---------- HERO / ABOUT ---------- */
   .hero{padding:72px 0 56px;border-bottom:1px solid var(--line);}
   .hero-grid{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start;}
+  .photo-frame{width:100%;}
   .photo-frame img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
   .resume-btn{
     margin-top:14px;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
@@ -76,6 +87,10 @@
     transition:background .15s;
   }
   .resume-btn:hover{background:var(--teal-deep);}
+  .resume-blurb{
+    font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);
+    margin-top:10px;line-height:1.5;text-align:center;
+  }
 
   .eyebrow{
     font-family:var(--mono);font-size:12.5px;letter-spacing:0.1em;color:var(--teal-deep);
@@ -211,7 +226,7 @@
     .nav-inner{padding:14px 20px;}
     .hero{padding:48px 0 36px;}
     .hero-grid{grid-template-columns:1fr;justify-items:center;text-align:center;gap:22px;}
-    .photo-frame{width:200px;}
+    .photo-frame{width:180px;}
     .location-line, .social-row{justify-content:center;}
     .hero-summary{margin-left:auto;margin-right:auto;}
     .stat-strip{grid-template-columns:repeat(2,1fr);row-gap:18px;}
@@ -227,8 +242,8 @@
 <body>
 
 <header class="site-nav">
-  <div class="nav-inner">
-    <a class="nav-mark" href="#top">MANIKANDAN&nbsp;N</a>
+  <div>
+    <a class="nav-mark" href="#top">MANIKANDAN&nbsp;N<br>Portfolio</a>
     <ul class="nav-links">
       <li><a href="#about"><span class="num">01</span>About</a></li>
       <li><a href="#experience"><span class="num">02</span>Experience</a></li>
@@ -239,6 +254,7 @@
       <li><a href="#contact"><span class="num">07</span>Contact</a></li>
     </ul>
   </div>
+  <div class="nav-foot">© 2026 Manikandan N</div>
 </header>
 
 <main id="top">
@@ -251,13 +267,14 @@
             <img src="profile.jpg" alt="Portrait of Manikandan N">
           </div>
           <a class="resume-btn" href="resume.pdf" download>↓ Download Resume</a>
+          <p class="resume-blurb">Download my resume to learn more about my experience, skills, and achievements in biostatistics and clinical research.</p>
         </div>
         <div>
           <div class="eyebrow">01 · About</div>
           <h1 class="name">Manikandan N</h1>
           <p class="role-line">Senior Technical Executive — <strong>Biostatistician</strong></p>
           <p class="location-line">
-            <span>📍 Villupuram, Tamil Nadu – 605103</span>
+            <span>📍 Villupuram, Tamil Nadu – 605602</span>
             <span>☏ +91 77088 16384</span>
           </p>
           <p class="hero-summary">
@@ -530,6 +547,7 @@
           <a href="https://linkedin.com/in/mani2" target="_blank" rel="noopener">linkedin.com/in/mani2</a>
           <a href="https://www.credly.com/users/manikandan_n" target="_blank" rel="noopener">credly.com/users/manikandan_n</a>
           <a href="resume.pdf" download>Download Resume (PDF)</a>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--ink-soft);max-width:36ch;line-height:1.6;">Download my resume to learn more about my experience, skills, and achievements in biostatistics and clinical research.</span>
         </div>
       </div>
       <div class="foot-note">
