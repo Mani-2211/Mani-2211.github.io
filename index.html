@@ -10,11 +10,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0a0f1a;--surface:#0f1524;--card:#121a2c;
-    --border:#1f2c42;--border2:#2a3a56;
-    --accent:#2fd6c0;--accent-dim:rgba(47,214,192,0.12);
-    --accent-2:#a78bfa;--accent-3:#fb923c;--accent-4:#f87171;--accent-5:#fbbf24;
-    --text:#e7ecf7;--muted:#8b97b3;--dim:#4c5a76;
+    --bg:#eaf5ec;--surface:#f4faf5;--card:#ffffff;
+    --border:#cfe3d4;--border2:#b7d6bf;
+    --accent:#1f8a5f;--accent-dim:rgba(31,138,95,0.10);
+    --accent-2:#7c5cbf;--accent-3:#c2703a;--accent-4:#b5482f;--accent-5:#a8821f;
+    --text:#14261a;--muted:#4c6155;--dim:#8aa094;
     --sw:220px;
     --mono:'Space Mono', ui-monospace, monospace;
     --sans:'IBM Plex Sans', -apple-system, sans-serif;
@@ -25,8 +25,8 @@
   body{
     background-color:var(--bg);
     background-image:
-      linear-gradient(rgba(47,214,192,0.035) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(47,214,192,0.035) 1px,transparent 1px);
+      linear-gradient(rgba(31,138,95,0.06) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(31,138,95,0.06) 1px,transparent 1px);
     background-size:52px 52px;
     color:var(--text);font-family:var(--sans);line-height:1.7;
     -webkit-font-smoothing:antialiased;
@@ -90,17 +90,17 @@
   .about-grid{display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:start;}
   .pimg-wrap{text-align:center;}
   .pimg-wrap img{
-    width:180px;height:180px;border-radius:50%;object-fit:cover;
-    border:2px solid var(--accent);
-    box-shadow:0 0 0 6px var(--accent-dim), 0 0 40px rgba(47,214,192,0.18);
-    margin-bottom:16px;
+    width:100%;aspect-ratio:3/4;object-fit:cover;
+    border:1px solid var(--border);border-radius:4px;
+    box-shadow:0 14px 30px -18px rgba(20,38,26,0.25);
+    margin-bottom:16px;display:block;
   }
   .dl-btn{
     display:block;width:100%;text-align:center;font-family:var(--mono);font-size:10.5px;
     letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);
     border-radius:4px;padding:9px 14px;text-decoration:none;transition:all .22s;
   }
-  .dl-btn:hover{background:var(--accent);color:var(--bg);box-shadow:0 0 20px rgba(47,214,192,0.3);}
+  .dl-btn:hover{background:var(--accent);color:var(--bg);box-shadow:0 0 20px rgba(31,138,95,0.3);}
   .resume-blurb{font-family:var(--mono);font-size:9.5px;color:var(--dim);margin-top:10px;line-height:1.6;}
 
   .clinks{display:flex;flex-direction:column;gap:8px;margin-top:14px;}
@@ -120,9 +120,10 @@
   .stat-lbl{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
 
   .bio-box{
-    background:linear-gradient(135deg,var(--accent-dim) 0%,rgba(47,214,192,0.02) 100%);
+    background:linear-gradient(135deg,var(--accent-dim) 0%,rgba(31,138,95,0.02) 100%);
     border:1px solid var(--border);border-left:3px solid var(--accent);
     border-radius:0 8px 8px 0;padding:20px 22px;color:var(--muted);font-size:14.5px;
+    text-align:justify;
   }
 
   /* ---------- EXPERIENCE ---------- */
@@ -142,7 +143,7 @@
     display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.03em;
     text-transform:uppercase;border-radius:3px;padding:3px 10px;border:1px solid;
   }
-  .tag.c1{color:var(--accent);border-color:rgba(47,214,192,0.4);background:rgba(47,214,192,0.06);}
+  .tag.c1{color:var(--accent);border-color:rgba(31,138,95,0.4);background:rgba(31,138,95,0.06);}
   .tag.c2{color:var(--accent-2);border-color:rgba(167,139,250,0.4);background:rgba(167,139,250,0.06);}
   .tag.c3{color:var(--accent-3);border-color:rgba(251,146,60,0.4);background:rgba(251,146,60,0.06);}
   .tag.c4{color:var(--accent-5);border-color:rgba(251,191,36,0.4);background:rgba(251,191,36,0.06);}
@@ -177,7 +178,7 @@
   .proj-card:hover{border-color:var(--accent);}
   .proj-num{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;color:var(--dim);min-width:22px;}
   .proj-title{font-family:var(--display);font-size:17px;font-weight:700;margin-bottom:8px;}
-  .proj-desc{font-size:13.5px;color:var(--muted);margin-bottom:12px;}
+  .proj-desc{font-size:13.5px;color:var(--muted);margin-bottom:12px;text-align:justify;}
   .proj-note{font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:14px;}
 
   /* ---------- CERTIFICATIONS ---------- */
@@ -229,7 +230,7 @@
   <div class="sb-brand">
     <div class="sb-pre">Portfolio</div>
     <div class="sb-name">Manikandan N</div>
-    <div class="sb-role">Biostatistician<br>Clinical Trial Statistics</div>
+    <div class="sb-role">Biostatistician</div>
   </div>
   <div class="sb-nav-pre">Navigate</div>
   <nav>
