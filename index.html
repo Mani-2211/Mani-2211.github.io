@@ -72,10 +72,11 @@
 
   /* ---------- SECTION SHELL ---------- */
   section{padding:56px 0;border-bottom:1px solid var(--border);}
-  .sec-top{margin-bottom:28px;}
-  .sec-n{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.14em;}
-  .sec-top h2{font-family:var(--display);font-size:32px;font-weight:700;letter-spacing:-.02em;margin-top:4px;}
-  .sec-rule{height:1px;background:linear-gradient(90deg,var(--accent) 0%,var(--border2) 40%,transparent 100%);margin-top:14px;}
+  .sec-top{margin-bottom:22px;}
+  .sec-head-row{display:flex;align-items:baseline;gap:8px;flex-wrap:nowrap;}
+  .sec-n{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:.14em;white-space:nowrap;}
+  .sec-top h2{font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:-.005em;margin:0;white-space:nowrap;}
+  .sec-rule{height:1px;background:linear-gradient(90deg,var(--accent) 0%,var(--border2) 40%,transparent 100%);margin-top:10px;width:100%;}
 
   .card{
     background:var(--card);border:1px solid var(--border);border-radius:8px;
@@ -220,7 +221,7 @@
     .edu-grid{grid-template-columns:1fr;}
     .cert-gallery{grid-template-columns:repeat(2,1fr);}
     .abt-name{font-size:32px;}
-    .sec-top h2{font-size:24px;}
+    .sec-top h2{font-size:15px;}
   }
 </style>
 </head>
@@ -300,7 +301,7 @@
   <!-- 02 EXPERIENCE -->
   <section id="experience">
     <div class="wrap">
-      <div class="sec-top"><div class="sec-n">02 /</div><h2>Experience</h2><div class="sec-rule"></div></div>
+      <div class="sec-top"><div class="sec-head-row"><div class="sec-n">02 /</div><h2>Experience</h2></div><div class="sec-rule"></div></div>
 
       <div class="card">
         <div class="meta-row">
@@ -351,7 +352,7 @@
   <!-- 03 EDUCATION -->
   <section id="education">
     <div class="wrap">
-      <div class="sec-top"><div class="sec-n">03 /</div><h2>Education</h2><div class="sec-rule"></div></div>
+      <div class="sec-top"><div class="sec-head-row"><div class="sec-n">03 /</div><h2>Education</h2></div><div class="sec-rule"></div></div>
       <div class="edu-grid">
         <div class="card">
           <div class="edu-type">Postgraduate</div>
@@ -372,7 +373,7 @@
   <!-- 04 SKILLS -->
   <section id="skills">
     <div class="wrap">
-      <div class="sec-top"><div class="sec-n">04 /</div><h2>Skills</h2><div class="sec-rule"></div></div>
+      <div class="sec-top"><div class="sec-head-row"><div class="sec-n">04 /</div><h2>Skills</h2></div><div class="sec-rule"></div></div>
       <div class="skills-wrap">
         <div class="sg">
           <div class="sg-head"><div class="sg-title">Programming &amp; Software</div><div class="sg-line"></div></div>
@@ -413,7 +414,7 @@
   <!-- 05 PROJECTS -->
   <section id="projects">
     <div class="wrap">
-      <div class="sec-top"><div class="sec-n">05 /</div><h2>Projects — Oncology</h2><div class="sec-rule"></div></div>
+      <div class="sec-top"><div class="sec-head-row"><div class="sec-n">05 /</div><h2>Projects — Oncology</h2></div><div class="sec-rule"></div></div>
 
       <div class="proj-card"><div class="proj-num">01</div><div>
         <div class="proj-title">SAP Development &amp; TLF Shells for a Solid-Tumor Oncology Trial</div>
@@ -452,7 +453,7 @@
   <!-- 06 CERTIFICATIONS -->
   <section id="certifications">
     <div class="wrap">
-      <div class="sec-top"><div class="sec-n">06 /</div><h2>Certifications</h2><div class="sec-rule"></div></div>
+      <div class="sec-top"><div class="sec-head-row"><div class="sec-n">06 /</div><h2>Certifications</h2></div><div class="sec-rule"></div></div>
       <p style="color:var(--muted);font-size:14px;max-width:70ch;margin-bottom:22px;">
         Certifications earned across clinical biostatistics, SAS Viya analytics, CDISC standards, and statistical programming.
       </p>
@@ -483,7 +484,7 @@
   <!-- 07 CONTACT -->
   <footer id="contact">
     <div class="wrap">
-      <div class="sec-n" style="margin-bottom:6px;">07 /</div>
+      <div class="sec-top"><div class="sec-head-row"><div class="sec-n">07 /</div><h2>Contact</h2></div><div class="sec-rule"></div></div>
       <p style="color:var(--muted);font-size:14px;max-width:64ch;margin-bottom:26px;">
         Feel free to reach out for collaborations, opportunities, or just to connect. I'm always open to discussing
         clinical biostatistics, SAS/R programming, and regulatory analytics.
